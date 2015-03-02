@@ -1,3 +1,6 @@
 # IDES specific (eclipse) #
 .metadata/
 RemoteSystemsTempFiles/
+WlsAttributeNameMapper/.project
+WlsAttributeNameMapper/.classpath
+WlsAttributeNameMapper/.settings/
