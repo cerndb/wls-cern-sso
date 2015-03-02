@@ -4,12 +4,16 @@ RemoteSystemsTempFiles/
 WlsAttributeNameMapper/.project
 WlsAttributeNameMapper/.classpath
 WlsAttributeNameMapper/.settings/
+copyrightLog.txt
 
 # Binaries #
 WlsAttributeNameMapper/bin
+WlsAttributeNameMapper/build
 
 # Compiled classes #
 *.class
 
 # Packages #
 *.jar
+
+
