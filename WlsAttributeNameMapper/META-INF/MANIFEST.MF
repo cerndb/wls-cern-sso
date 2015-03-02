@@ -1,0 +1,4 @@
+Name: WlsAttributeNameMapper
+Specification-Title: SAML2 attributes mapper
+Specification-Version: 2.0
+Specification-Vendor: CERN IT-DB

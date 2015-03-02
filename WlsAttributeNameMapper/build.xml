@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="WlsAttributeNameMapper" default="jar" basedir=".">
+
+	<!-- Creates the bin (.classes) and build (.jar) directories -->
+	<target name="init" depends="clean">
+		<mkdir dir="bin" />
+		<mkdir dir="build" />
+	</target>
+
+	<!-- Deletes the old compiled classes (bin directory) and the previous built jar (if exists) -->
+	<target name="clean" description="Delete the bin directory">
+		<delete dir="bin">
+		</delete>
+		<delete dir="build">
+		</delete>
+	</target>
+
+	<!-- Compile the java classes. Copy the resulting .class files in the "bin" directory-->
+	<target name="compile" description="Compile the sources in the bin directory" depends="init">
+		<javac srcdir="src" destdir="bin" debug="on" debuglevel="lines,vars,source">
+			<classpath>
+				<path>
+					<fileset file="/home/lurodrig/development/servers/wls12130/wlserver/server/lib/wls-api.jar" />
+				</path>
+			</classpath>
+		</javac>
+	</target>
+
+	<!-- Packages all of the COMPILED classes (.class) in a jar in the build folder-->
+	<target name="jar" depends="compile" description="Create a jar for the WlsAttributeNameMapper project">
+		<jar jarfile="build/WlsAttributeNameMapper.jar" basedir="bin" update="true" manifest="META-INF/MANIFEST.MF">
+			<fileset dir="bin" includes="*.class">
+			</fileset>
+		</jar>
+	</target>
+</project>
