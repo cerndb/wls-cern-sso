@@ -2,7 +2,7 @@
 
 ## What?
 
-This library allows the server to extract the information from the SSO response and create the [java.security.Principal](http://docs.oracle.com/javase/7/docs/api/java/security/Principal.html) objects that identify the authenticated user.
+This library allows the server to extract the information from the SSO response and create the [java.security.Principal](http://docs.oracle.com/javase/7/docs/api/java/security/Principal.html) objects that identify the authenticated user ([subject](http://docs.oracle.com/javase/7/docs/api/javax/security/auth/Subject.html)).
 
 ## Compilation and packaging
 
