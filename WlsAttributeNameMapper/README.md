@@ -34,4 +34,27 @@ if [ "${EXT_POST_CLASSPATH}" != "" ] ; then
         fi
 fi
 ```
+Once your system classpath is set declare the mapper class into the **User Name Mapper Class Name** field of your **SSO Identity Asserter**. See [Configure a custom user name mapper](http://docs.oracle.com/cd/E24329_01/apirefs.1211/e24401/taskhelp/security/ConfigureCustomUserNameMappers.html) for more information. You can choose between two implementations of the mapper:
+
+1. [CernWlsPrincipalMapper](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/src/ch/cern/sso/weblogic/mappers/CernWlsPrincipalMapper.java): it creates one [CernWlsUserPrincipal](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/src/ch/cern/sso/weblogic/principals/CernWlsUserPrincipal.java) with the user's attributes (name, email, phone number...) plus one [CernWlsGroupPrincipal](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/src/ch/cern/sso/weblogic/principals/CernWlsGroupPrincipal.java) per user's group.
+2. [CernWlsUserPrincipalMapper](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/src/ch/cern/sso/weblogic/mappers/CernWlsUserPrincipalMapper.java): it creates one [CernWlsUserPrincipal](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/src/ch/cern/sso/weblogic/principals/CernWlsUserPrincipal.java) with the user's attributes, including an [ArrayList](http://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html) of strings with all the groups.
+
+## How can I get this information in my application?
+
+```java
+import java.security.Principal;
+import weblogic.security.Security;
+import javax.security.auth.Subject;
+import ch.cern.sso.weblogic.principals.CernWlsUserPrincipal;
+
+// .../...
+Subject subject = Security.getCurrentSubject();
+Set<Principal> principals = subject.getPrincipals();
+for (Iterator iterator = principals.iterator(); iterator.hasNext();) {
+	Principal principal = (Principal) iterator.next();
+	if (principal instanceof CernWlsUserPrincipalMapper) {
+		//
+	}
+}
+``` 
 
