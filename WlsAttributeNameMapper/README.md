@@ -6,11 +6,19 @@ This library allows the server to extract the information from the SSO response 
 
 ## Compilation and packaging
 
-Ant
+The source code has been compiled using Java 7:
+
+```
+java version "1.7.0_67"
+Java(TM) SE Runtime Environment (build 1.7.0_67-b01)
+Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
+```
+
+You will need to add the [wls-api.jar](http://docs.oracle.com/middleware/1212/wls/NOTES/index.html#CJAEGAAB) to your **classpath**. 
 
 ## Installation
 
-Add the classes to the [Oracle Weblogic system classpath](http://docs.oracle.com/middleware/1212/wls/WLPRG/classloading.htm#WLPRG282). To do this you can override the value of the *(EXT_POST_CLASSPATH)* variable in the *setDomainEnv.sh* script:
+Add the classes to the [Oracle Weblogic system classpath](http://docs.oracle.com/middleware/1212/wls/WLPRG/classloading.htm#WLPRG282). To do this you can override the value of the **EXT_POST_CLASSPATH** variable in the **setDomainEnv.sh** script:
 
 ```
 EXT_POST_CLASSPATH="/path/to/your/WlsAttributeNameMapper.jar"
