@@ -9,6 +9,8 @@ copyrightLog.txt
 # Binaries #
 WlsAttributeNameMapper/bin
 WlsAttributeNameMapper/build
+saml2slo/bin
+saml2slo/build
 
 # Compiled classes #
 *.class
