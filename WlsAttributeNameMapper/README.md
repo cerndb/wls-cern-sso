@@ -16,9 +16,11 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
 
 You will need to add the [wls-api.jar](http://docs.oracle.com/middleware/1212/wls/NOTES/index.html#CJAEGAAB) to your **classpath**. 
 
+The library is packaged as a **.jar**. You can use the [ant target](https://ant.apache.org/manual/targets.html) of the [build.xml](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/build.xml)
+
 ## Installation
 
-Add the classes to the [Oracle Weblogic system classpath](http://docs.oracle.com/middleware/1212/wls/WLPRG/classloading.htm#WLPRG282). To do this you can override the value of the **EXT_POST_CLASSPATH** variable in the **setDomainEnv.sh** script:
+Add the classes to the [Oracle Weblogic system classpath](http://docs.oracle.com/middleware/1212/wls/WLPRG/classloading.htm#WLPRG282). To do this you can override the value of the **EXT_POST_CLASSPATH** variable in the **setDomainEnv.sh** script with the path to the compiled package:
 
 ```shell
 EXT_POST_CLASSPATH="/path/to/your/WlsAttributeNameMapper.jar"
