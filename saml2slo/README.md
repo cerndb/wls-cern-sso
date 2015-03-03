@@ -21,7 +21,9 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
 
 You will need to add the next libraries to your **classpath**:
 
-* [wls-api.jar](http://docs.oracle.com/middleware/1212/wls/NOTES/index.html#CJAEGAAB) 
+* [$WL_HOME/server/lib/api.jar](http://docs.oracle.com/middleware/1212/wls/NOTES/index.html#CJAEGAAB) 
+* **$WL_HOME/server/lib/api.jar**: it loads the **Servlet API** among many others (take a look at its *MANIFEST.MF*).
+* **$WL_HOME/modules/com.bea.core.utils_2.3.0.0.jar**: it contains utility classes like *weblogic.utils.encoders.BASE64Encoder* 
 
 The library is packaged as a **.war**. You can use the [ant target](https://ant.apache.org/manual/targets.html) of the [build.xml](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/build.xml). Remember to update the **classpath** [fileset](https://ant.apache.org/manual/Types/fileset.html) of the compile target with above jar.    
 
