@@ -1,16 +1,15 @@
 # IDES specific (eclipse) #
 .metadata/
 RemoteSystemsTempFiles/
-WlsAttributeNameMapper/.project
-WlsAttributeNameMapper/.classpath
-WlsAttributeNameMapper/.settings/
+*/.project
+*/.classpath
+*/.settings/
 copyrightLog.txt
 
+
 # Binaries #
-WlsAttributeNameMapper/bin
-WlsAttributeNameMapper/build
-saml2slo/bin
-saml2slo/build
+*/bin
+*/build
 
 # Compiled classes #
 *.class
@@ -18,4 +17,5 @@ saml2slo/build
 # Packages #
 *.jar
 
-
+# Other #
+*.swp
