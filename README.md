@@ -13,4 +13,4 @@ These libraries have been written by [Luis Rodríguez](https://profiles.web.cern
 
 ## Contributing
 
-I have tried to make the implementation as much general as possible. However it is possible that you have to do some changes in order to make it work to your environment. Please feel free to submit bug reports and pull request via [Github](https://github.com/cerndb/wls-cern-sso)  
+I have tried to make the implementation as much general as possible. However it is possible that you have to do some changes in order to make it work in your environment. Please feel free to submit bug reports and pull request via [Github](https://github.com/cerndb/wls-cern-sso).  
