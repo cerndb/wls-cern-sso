@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+
+	<display-name>saml2slo</display-name>
+
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
+	<context-param>
+		<description>Signature Algorithm</description>
+		<param-name>algorithm</param-name>
+		<param-value>SHA1withRSA</param-value>
+	</context-param>
+
+	<context-param>
+		<description>Signature Algorithm (specified in the URL)</description>
+		<param-name>SigAlg</param-name>
+		<param-value>http://www.w3.org/2000/09/xmldsig#rsa-sha1</param-value>
+	</context-param>
+
+	<context-param>
+		<description>IdP endpoint</description>
+		<param-name>idpEndpoint</param-name>
+		<param-value>https://login.cern.ch/adfs/ls/</param-value>
+	</context-param>
+
+	<context-param>
+		<description>Keystore type</description>
+		<param-name>keystoreType</param-name>
+		<param-value>JKS</param-value>
+	</context-param>
+
+	<context-param>
+		<description>Keystore provider</description>
+		<param-name>keystoreProvider</param-name>
+		<param-value>SUN</param-value>
+	</context-param>
+
+	<context-param>
+		<description>Keystore password key</description>
+		<param-name>keystorePasswordKey</param-name>
+		<param-value>password_cert_storepass</param-value>
+	</context-param>
+
+	<context-param>
+		<description>Private key password key</description>
+		<param-name>privateKeyPasswordKey</param-name>
+		<param-value>password_cert_keypass</param-value>
+	</context-param>
+
+	<context-param>
+		<description>Get passwords script</description>
+		<param-name>getPasswdScript</param-name>
+		<param-value>/ORA/dbs01/syscontrol/projects/systools/bin/get_passwd</param-value>
+	</context-param>
+
+	<context-param>
+		<description>SSO Single Log Out URL</description>
+		<param-name>ssoSignOutUrl</param-name>
+		<param-value>https://login.cern.ch/adfs/ls/?wa=wsignout1.0</param-value>
+	</context-param>
+
+	<context-param>
+		<description>SAML 2.0 Identity Assertion Provider</description>
+		<param-name>webSSOpartnerName</param-name>
+		<param-value>cernIdPpartner</param-value>
+	</context-param>
+
+	<context-param>
+		<description>SAML 2.0 identity provider partners</description>
+		<param-name>authenticationProviderName</param-name>
+		<param-value>cernIdentityAsserter</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>SAML2sloServlet</servlet-name>
+		<servlet-class>ch.cern.security.saml2.servlet.SAML2sloServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>SAML2sloServlet</servlet-name>
+		<url-pattern>/sp</url-pattern>
+	</servlet-mapping>
+
+	<listener>
+		<display-name>Saml2sloContextListener</display-name>
+		<listener-class>ch.cern.security.saml2.listener.Saml2sloContextListener</listener-class>
+	</listener>
+
+</web-app>

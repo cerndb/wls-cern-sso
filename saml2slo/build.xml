@@ -7,7 +7,7 @@ In applying this license, CERN does not waive the privileges and immunities
 granted to it by virtue of its status as Intergovernmental Organization
 or submit itself to any jurisdiction.
 -->
-<project name="WlsAttributeNameMapper" default="jar" basedir=".">
+<project name="saml2slo" default="war" basedir=".">
 
 	<!-- Creates the bin (.classes) and build (.jar) directories -->
 	<target name="init" depends="clean">
@@ -28,17 +28,33 @@ or submit itself to any jurisdiction.
 		<javac srcdir="src" destdir="bin" debug="on" debuglevel="lines,vars,source">
 			<classpath>
 				<path>
-					<fileset file="/home/lurodrig/development/servers/wls12130/wlserver/server/lib/wls-api.jar" />
+					<fileset dir="/home/lurodrig/development/servers/wls12130/wlserver/server/lib/">
+						<include name="wls-api.jar" />
+						<include name="api.jar" />
+					</fileset>
+					<fileset dir="/home/lurodrig/development/servers/wls12130/wlserver/modules/">
+						<include name="com.bea.core.utils_2.3.0.0.jar" />
+					</fileset>
+					<fileset dir="WebContent/WEB-INF/lib">
+						<include name="*.jar" />
+					</fileset>
 				</path>
 			</classpath>
 		</javac>
+		<copy todir="src/conf">
+			<fileset dir="bin/conf" />
+		</copy>
 	</target>
 
-	<!-- Packages all of the COMPILED classes (.class) in a jar in the build folder-->
-	<target name="jar" depends="compile" description="Create a jar for the WlsAttributeNameMapper project">
-		<jar jarfile="build/WlsAttributeNameMapper.jar" basedir="bin" update="true" manifest="META-INF/MANIFEST.MF">
-			<fileset dir="bin" includes="*.class">
+	<!-- Create the war package that will be deployed in the application server-->
+	<target name="war" depends="compile" description="Package the application">
+		<war destfile="build/saml2slo.war" webxml="WebContent/WEB-INF/web.xml" manifest="WebContent/META-INF/MANIFEST.MF">
+			<fileset dir="WebContent">
 			</fileset>
-		</jar>
+			<classes dir="bin" />
+			<lib dir="WebContent/WEB-INF/lib">
+				<include name="*.jar" />
+			</lib>
+		</war>
 	</target>
 </project>

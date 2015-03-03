@@ -8,23 +8,14 @@
  *
  *
  *******************************************************************************/
-package ch.cern.sso.weblogic.principals;
+package ch.cern.security.saml2.mbeans;
 
-import weblogic.security.spi.WLSGroup;
+import java.io.IOException;
+import java.util.Map;
 
-public class CernWlsGroupPrincipal extends CernWlsPrincipal implements WLSGroup {
+public interface PropertyConfigMXBean {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5685387360713237532L;
-
-	public CernWlsGroupPrincipal() {
-		super();
-	}
-
-	public CernWlsGroupPrincipal(String name) {
-		super(name);
-	}
-	
+	public String setProperty(String key, String value) throws IOException;
+    public String getProperty(String key);
+    public Map getProperties();
 }

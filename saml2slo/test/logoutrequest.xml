@@ -1,0 +1,7 @@
+<samlp:LogoutRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+	xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_0xbb5774feee03ed99e4060819ce38e000"
+	Version="2.0" IssueInstant="2008-06-03T12:59:57Z" Destination="https://login-dev.cern.ch/adfs/ls/">
+	<saml:Issuer>pcitdes12.cern.ch</saml:Issuer>
+	<saml:NameID Format="urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+		NameQualifier="https://login-dev.cern.ch/adfs/ls">luis.rodriguez.fernandez@cern.ch</saml:NameID>
+</samlp:LogoutRequest>

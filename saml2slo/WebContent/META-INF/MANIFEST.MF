@@ -1,0 +1,4 @@
+Name: saml2slo
+Specification-Title: SAML2 Single Log Out
+Specification-Version: 1.8
+Specification-Vendor: CERN IT-DB
