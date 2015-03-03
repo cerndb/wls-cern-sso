@@ -20,7 +20,7 @@ You will need to add the [wls-api.jar](http://docs.oracle.com/middleware/1212/wl
 
 Add the classes to the [Oracle Weblogic system classpath](http://docs.oracle.com/middleware/1212/wls/WLPRG/classloading.htm#WLPRG282). To do this you can override the value of the **EXT_POST_CLASSPATH** variable in the **setDomainEnv.sh** script:
 
-```
+```shell
 EXT_POST_CLASSPATH="/path/to/your/WlsAttributeNameMapper.jar"
 if [ "${EXT_POST_CLASSPATH}" != "" ] ; then
         if [ "${POST_CLASSPATH}" != "" ] ; then
