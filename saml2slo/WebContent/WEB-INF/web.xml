@@ -72,7 +72,7 @@
 	</context-param>
 
 	<context-param>
-		<description>SAML 2.0 identity provider partners</description>
+		<description>SAML 2.0 identity provider partner</description>
 		<param-name>authenticationProviderName</param-name>
 		<param-value>cernIdentityAsserter</param-value>
 	</context-param>
