@@ -11,7 +11,6 @@
 package ch.cern.security.saml2.utils;
 
 import java.io.IOException;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.security.InvalidKeyException;
 import java.security.KeyStoreException;
@@ -36,7 +35,6 @@ import org.bouncycastle.util.encoders.Hex;
 import org.xml.sax.SAXException;
 
 import weblogic.logging.NonCatalogLogger;
-
 import ch.cern.security.saml2.utils.signature.SignatureUtils;
 import ch.cern.security.saml2.utils.xml.XMLUtils;
 import ch.cern.security.saml2.vo.SamlVO;
