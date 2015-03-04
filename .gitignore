@@ -15,7 +15,7 @@ copyrightLog.txt
 *.class
 
 # Packages #
-*.jar
+#*.jar
 
 # Other #
 *.swp
