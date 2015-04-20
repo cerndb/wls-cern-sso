@@ -23,7 +23,7 @@ The library is packaged as a **.jar**. You can use the **jar* [ant target](https
 Add the classes to the [Oracle Weblogic system classpath](http://docs.oracle.com/middleware/1212/wls/WLPRG/classloading.htm#WLPRG282). To do this you can override the value of the **EXT_POST_CLASSPATH** variable in the **setDomainEnv.sh** script with the path to the compiled package:
 
 ```shell
-EXT_POST_CLASSPATH="/path/to/your/WlsAttributeNameMapper.jar"
+EXT_POST_CLASSPATH="$EXT_POST_CLASSPATH:/path/to/your/WlsAttributeNameMapper.jar"
 if [ "${EXT_POST_CLASSPATH}" != "" ] ; then
         if [ "${POST_CLASSPATH}" != "" ] ; then
                 POST_CLASSPATH="${POST_CLASSPATH}${CLASSPATHSEP}${EXT_POST_CLASSPATH}"
