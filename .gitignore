@@ -6,7 +6,6 @@ RemoteSystemsTempFiles/
 */.settings/
 copyrightLog.txt
 
-
 # Binaries #
 */bin
 */build
@@ -20,3 +19,6 @@ copyrightLog.txt
 # Other #
 *.swp
 *.html
+
+# ssoFilters project
+ssoFilters/
