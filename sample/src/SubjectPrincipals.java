@@ -16,7 +16,7 @@ import weblogic.security.Security;
 /**
  * Servlet implementation class SubjectPrincipals
  */
-@WebServlet("/subjectPrincipals")
+@WebServlet(urlPatterns = {"/secure/subjectPrincipals", "/secure/sso/subjectPrincipals"})
 public class SubjectPrincipals extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

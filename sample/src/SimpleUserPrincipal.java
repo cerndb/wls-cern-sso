@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UserPrincipals
  */
-@WebServlet("/simpleUserPrincipal")
+@WebServlet(urlPatterns = {"/secure/simpleUserPrincipal", "/secure/sso/simpleUserPrincipal"})
 public class SimpleUserPrincipal extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

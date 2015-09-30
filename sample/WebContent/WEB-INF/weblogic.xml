@@ -1,6 +1,12 @@
 <weblogic-web-app>
+<!-- 
 	<security-role-assignment>
 		<role-name>User_role</role-name>
 		<principal-name>users</principal-name>
 	</security-role-assignment>
+	<security-role-assignment>
+		<role-name>ims-members</role-name>
+		<principal-name>it-dep-db-ims</principal-name>
+	</security-role-assignment>
+ -->
 </weblogic-web-app>

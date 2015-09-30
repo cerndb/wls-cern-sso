@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://pcitdes12.cern.ch/">
+<md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+<md:KeyDescriptor use="signing">
+<ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<ds:X509Data>
+<ds:X509Certificate>
+MIIH2zCCBcOgAwIBAgIKTtZcJAAAAAGBITANBgkqhkiG9w0BAQ0FADBWMRIwEAYKCZImiZPyLGQB
+GRYCY2gxFDASBgoJkiaJk/IsZAEZFgRjZXJuMSowKAYDVQQDEyFDRVJOIEdyaWQgQ2VydGlmaWNh
+dGlvbiBBdXRob3JpdHkwHhcNMTUwOTE1MTQzODU1WhcNMTYwOTE0MTQzODU1WjBaMRIwEAYKCZIm
+iZPyLGQBGRYCY2gxFDASBgoJkiaJk/IsZAEZFgRjZXJuMRIwEAYDVQQLEwljb21wdXRlcnMxGjAY
+BgNVBAMTEXBjaXRkZXMxMi5jZXJuLmNoMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+xSDmWyaWlu/NkWsrJo4JCdtG+O9yvAt60IJ8E9DGD33Gx3J2UaG7CyGec4eruRJ5V5a+4NxHT6GA
+I1ukTOINFSvyUSbb0HD+Qpi7RPf4zz4bDG+71bO4xQ9KMoUa+Bf2QJ95mJPDWv9KKmONNec+8pZ7
+HWQ0DxR21kDAcZ4YdrtbEzWCqrWwerBvWaG4YuC2PLWlpzIPysvf2U8yKks5SbAG86zWOLfS3dSJ
+a4YlUir0ZknO2Xyj8GqBdRDQ3B9wqOpj6NHm46PkXdD9ZRAPqAUdE6CfzvEcalRaVjBAMYXTBh0Y
+d/VNkzWevX0plA9Kxwf2HV9rIsQ2BJrqGgktmQIDAQABo4IDpTCCA6EwHQYDVR0OBBYEFL2niMSZ
+1pPlGVxa/PI8hcTYrOCXMB8GA1UdIwQYMBaAFKWg/WZY/bndeuGynZ+j0eVQGJTnMIIBOAYDVR0f
+BIIBLzCCASswggEnoIIBI6CCAR+GTmh0dHA6Ly9jYWZpbGVzLmNlcm4uY2gvY2FmaWxlcy9jcmwv
+Q0VSTiUyMEdyaWQlMjBDZXJ0aWZpY2F0aW9uJTIwQXV0aG9yaXR5LmNybIaBzGxkYXA6Ly8vQ049
+Q0VSTiUyMEdyaWQlMjBDZXJ0aWZpY2F0aW9uJTIwQXV0aG9yaXR5LENOPUNFUk5QS0kwNSxDTj1D
+RFAsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlv
+bixEQz1jZXJuLERDPWNoP2NlcnRpZmljYXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFz
+cz1jUkxEaXN0cmlidXRpb25Qb2ludDCCAWIGCCsGAQUFBwEBBIIBVDCCAVAwYwYIKwYBBQUHMAKG
+V2h0dHA6Ly9jYWZpbGVzLmNlcm4uY2gvY2FmaWxlcy9jZXJ0aWZpY2F0ZXMvQ0VSTiUyMEdyaWQl
+MjBDZXJ0aWZpY2F0aW9uJTIwQXV0aG9yaXR5LmNydDCBwgYIKwYBBQUHMAKGgbVsZGFwOi8vL0NO
+PUNFUk4lMjBHcmlkJTIwQ2VydGlmaWNhdGlvbiUyMEF1dGhvcml0eSxDTj1BSUEsQ049UHVibGlj
+JTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049Q29uZmlndXJhdGlvbixEQz1jZXJuLERD
+PWNoP2NBQ2VydGlmaWNhdGU/YmFzZT9vYmplY3RDbGFzcz1jZXJ0aWZpY2F0aW9uQXV0aG9yaXR5
+MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5jZXJuLmNoL29jc3AwDgYDVR0PAQH/BAQDAgWgMDwG
+CSsGAQQBgjcVBwQvMC0GJSsGAQQBgjcVCIO90AmC7Y0Nhu2LK4He9TeFgNBiHoaAW4XfpisCAWQC
+ARYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMCcGA1UdIAQgMB4wDgYMKwYBBAFgCgQC
+AgIAMAwGCiqGSIb3TAUCAgEwJwYJKwYBBAGCNxUKBBowGDAKBggrBgEFBQcDAjAKBggrBgEFBQcD
+ATANBgkqhkiG9w0BAQ0FAAOCAgEAmP6f9/IIOqosslagFXVTsQzbp/GhRbRk9YdwPNICWjrVni2U
+CIRIA/XkLFLWU87MU0QClChaFD/rVn1pXnTUtjpn/OxbSWFN9/Z3WoM2U+oz2hPxLWwuQqXgFAun
+mE2c/SmkwjyzPk78aSSYeMEfE1NeMdUEo1q0jH8RI3QaYPiw9rwdZtGepcJwtQQoRKqcBWfyb+6z
+/EZ+DDP12oDNCl+p6dXjWY153IC7aqhvuZxkk03SU+dm3n3BD70bIWe4MfRXKfba9Z9D27PSeSZa
+jFsHZ0WWcEcTyLVOB2buwtb7Fn+66py1OazDLc6s0GYilDdIjIh4A1Nzq7Cec0j8mBcH8dKHeaLm
+Ojg8NzlLBG/xcswKcwnsJlB0hQFvbaun71jAfPBFzIRGA2C7Yj2dy2QVFfIsIkD9Zdy2VBiCx9Au
+s6ZOx6n9sTSacKmw021refqLnFblDGrxOzWGtbrQzoZ9fyH0YD7rAWq6AkF6nw8gKikNlh3D6FxB
+co0n56MZXJS/u3lxvvavlX+z226+810m20BdfvgdG1sBUI8AeUbbxoQwgNOlIayxc3AYbFYVg3lx
+aFoS9l5k+YwtYtGCKDOFtDewoL0LXAqnacNhcg4y/5GYXmss6zXpL18IvrnyBLBA3hgfWuNJumol
+HPh9/w1+Y0G+gmtohVrUQZeytYc=
+</ds:X509Certificate>
+</ds:X509Data>
+</ds:KeyInfo>
+</md:KeyDescriptor>
+<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://pcitdes12.cern.ch:8002/saml2/sp/acs/post" index="0" isDefault="true"/>
+</md:SPSSODescriptor>
+<md:Organization>
+<md:OrganizationName xml:lang="en">IT-DB-IMS</md:OrganizationName>
+<md:OrganizationDisplayName xml:lang="en">IT-DB-IMS</md:OrganizationDisplayName>
+<md:OrganizationURL xml:lang="en">https://cern.ch</md:OrganizationURL>
+</md:Organization>
+<md:ContactPerson contactType="technical">
+<md:Company>CERN</md:Company>
+<md:GivenName>Luis</md:GivenName>
+<md:SurName>Rodriguez</md:SurName>
+<md:EmailAddress>lurodrig@cern.ch</md:EmailAddress>
+<md:TelephoneNumber>74444</md:TelephoneNumber>
+</md:ContactPerson>
+</md:EntityDescriptor>

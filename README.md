@@ -9,7 +9,7 @@ Oracle Weblogic Server implements out-of-the-box the [web browser SSO profile of
 
 ## Authors
 
-These libraries have been written by [Luis Rodríguez](http://profiles.web.cern.ch/720335).
+These libraries have been written by [Luis Rodríguez Fernandez](http://profiles.web.cern.ch/720335).
 
 ## Contributing
 
