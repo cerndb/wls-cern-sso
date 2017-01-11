@@ -16,7 +16,7 @@ import weblogic.security.principal.WLSUserImpl;
 /**
  * Servlet Filter implementation class HeadersDecorator
  */
-@WebFilter("/*")
+@WebFilter("/secure/weblogic")
 public class HeadersDecorator implements Filter {
 
     /**
