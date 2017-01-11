@@ -44,13 +44,13 @@
 	<context-param>
 		<description>Keystore password key</description>
 		<param-name>keystorePasswordKey</param-name>
-		<param-value>password_cert_storepass</param-value>
+		<param-value>password_keystore_weblogic_jks</param-value>
 	</context-param>
 
 	<context-param>
 		<description>Private key password key</description>
 		<param-name>privateKeyPasswordKey</param-name>
-		<param-value>password_cert_keypass</param-value>
+		<param-value>password_keypass_weblogic_jks</param-value>
 	</context-param>
 
 	<context-param>

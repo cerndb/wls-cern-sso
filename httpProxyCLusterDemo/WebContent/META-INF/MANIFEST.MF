@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Extension-List: ssoFilters
+ssoFilters-Extension-Name: ssoFilters
+ssoFilters-Specification-Version: 1.0
+ssoFilters-Implementation-Version: 2.0.10

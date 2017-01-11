@@ -28,9 +28,13 @@ public class SimpleUserPrincipal extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		out.println("Class: " + request.getUserPrincipal().getClass());
-		out.println("UserPrincipal: " + request.getUserPrincipal());
-		out.println("RemoteUser: " + request.getRemoteUser());
+		if(request.getUserPrincipal()!=null){
+			out.println("Class: " + request.getUserPrincipal().getClass());
+			out.println("UserPrincipal: " + request.getUserPrincipal());
+			out.println("RemoteUser: " + request.getRemoteUser());
+		} else {
+			out.println("NO User principal from HttpServletRequest");
+		}
 	}
 
 }

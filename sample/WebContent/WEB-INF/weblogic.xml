@@ -1,12 +1,10 @@
 <weblogic-web-app>
-<!-- 
 	<security-role-assignment>
-		<role-name>User_role</role-name>
+		<role-name>AllUsers</role-name>
 		<principal-name>users</principal-name>
 	</security-role-assignment>
-	<security-role-assignment>
-		<role-name>ims-members</role-name>
-		<principal-name>it-dep-db-ims</principal-name>
-	</security-role-assignment>
- -->
+	<session-descriptor>
+		<persistent-store-type>replicated</persistent-store-type>
+		<debug-enabled>true</debug-enabled>
+	</session-descriptor>
 </weblogic-web-app>

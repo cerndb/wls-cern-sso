@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
-  <display-name>sample</display-name>
-<security-constraint>
-    <web-resource-collection>
-      <web-resource-name>secure</web-resource-name>
-      <url-pattern>/secure/*</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
-      <role-name>User_role</role-name>
-    </auth-constraint>
-  </security-constraint>
-  <security-constraint>
-  	<web-resource-collection>
-  		<web-resource-name>authz</web-resource-name>
-  		<url-pattern>/secure/test-authz.jsp</url-pattern>
-  	</web-resource-collection>
-  	<auth-constraint>
-  		<role-name>ims-members</role-name>
-  	</auth-constraint>
-  </security-constraint>
-<!-- <security-role>
-    <role-name>User_role</role-name>
-  </security-role>
-    <security-role>
-    <role-name>ims-members</role-name>
-  </security-role> -->  
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>sample</display-name>
+	
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>principals</web-resource-name>
+			<url-pattern>/secure/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>AllUsers</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>AllUsers</role-name>
+	</security-role>
 </web-app>
