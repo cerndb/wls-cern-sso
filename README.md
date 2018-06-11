@@ -7,6 +7,10 @@ Oracle Weblogic Server implements out-of-the-box the [web browser SSO profile of
 1. How to get the user information from the IdP SAMLResponse: [WlsAttributeNameMapper](https://github.com/cerndb/wls-cern-sso/tree/master/WlsAttributeNameMapper)
 2. The [Single Log Out profile](http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml-tech-overview-2.0-cd-02.html):[saml2slo](https://github.com/cerndb/wls-cern-sso/tree/master/saml2slo)
 
+## Source code and instructions
+
+The project's source code and building instructions are available in the [saml2slo](/saml2slo) folder.
+
 ## Authors
 
 These libraries have been written by [Luis Rodríguez Fernandez](http://profiles.web.cern.ch/720335).

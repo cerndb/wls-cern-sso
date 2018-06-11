@@ -36,11 +36,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import weblogic.logging.NonCatalogLogger;
 import ch.cern.security.saml2.jmx.JmxConstants;
 import ch.cern.security.saml2.jmx.JmxUtils;
 import ch.cern.security.saml2.utils.ScriptUtils;
 import conf.Constants;
+import weblogic.logging.NonCatalogLogger;
 
 public class Saml2sloContextListener implements ServletContextListener {
 
@@ -50,15 +50,13 @@ public class Saml2sloContextListener implements ServletContextListener {
 	 * :%2F%2Fdownload.oracle.com%2Fdocs%2Fcd%2FE24329_01%2Fweb.1211%2Fe24419%2F
 	 * writing.htm%23LOGSV159
 	 */
-	private NonCatalogLogger nc = new NonCatalogLogger(this.getClass()
-			.getName());
+	private NonCatalogLogger nc = new NonCatalogLogger(this.getClass().getName());
 
 	/**
 	 * 
 	 */
-	private static final String KEYSTORE_TYPE = "keystoreType";
-	private static final String KEYSTORE_PROVIDER = "keystoreProvider";
 	private static final String CUSTOM_IDENTITY_KEYSTORE_FILE_NAME = "CustomIdentityKeyStoreFileName";
+	private static final String CUSTOM_IDENTITY_KEYSTORE_TYPE = "CustomIdentityKeyStoreType";
 	private static final String KEYSTORE_PASSWORD = "keystorePasswordKey";
 	private static final String PRIVATE_KEY_PASSWORD = "privateKeyPasswordKey";
 	private static final String GET_PASSWD_SCRIPT = "getPasswdScript";
@@ -78,8 +76,7 @@ public class Saml2sloContextListener implements ServletContextListener {
 		try {
 
 			// Get the ServletContext
-			ServletContext servletContext = servletContextEvent
-					.getServletContext();
+			ServletContext servletContext = servletContextEvent.getServletContext();
 
 			/*
 			 * If ServletContext is null the deployment must be stopped TODO: we
@@ -87,8 +84,7 @@ public class Saml2sloContextListener implements ServletContextListener {
 			 * failed
 			 */
 			if (servletContext == null) {
-				throw new RuntimeException(
-						Constants.SERVLET_CONTEXT_NULL_EXCEPTION);
+				throw new RuntimeException(Constants.SERVLET_CONTEXT_NULL_EXCEPTION);
 			}
 
 			// Get the SP SSO private key
@@ -96,8 +92,7 @@ public class Saml2sloContextListener implements ServletContextListener {
 			// Store the SP SSO private key in the servlet context
 			if (privateKey != null) {
 				nc.notice("SP private key got");
-				servletContextEvent.getServletContext().setAttribute(
-						Constants.SP_PRIVATE_KEY, privateKey);
+				servletContextEvent.getServletContext().setAttribute(Constants.SP_PRIVATE_KEY, privateKey);
 			} else {
 				throw new RuntimeException(Constants.SP_PRIVATE_KEY_EXCEPTION);
 			}
@@ -106,8 +101,7 @@ public class Saml2sloContextListener implements ServletContextListener {
 			PublicKey publicKey = getIdpPublicKey(servletContext);
 			if (publicKey != null) {
 				nc.notice("IdP public key got");
-				servletContextEvent.getServletContext().setAttribute(
-						Constants.IDP_PUBLIC_KEY, publicKey);
+				servletContextEvent.getServletContext().setAttribute(Constants.IDP_PUBLIC_KEY, publicKey);
 			} else {
 				throw new RuntimeException(Constants.IDP_PUBLIC_KEY_EXCEPTION);
 			}
@@ -117,32 +111,27 @@ public class Saml2sloContextListener implements ServletContextListener {
 			// Store the sigAlg in the servlet context
 			if (sigAlg != null) {
 				nc.notice(sigAlg);
-				servletContextEvent.getServletContext().setAttribute(
-						Constants.SIG_ALG, sigAlg);
+				servletContextEvent.getServletContext().setAttribute(Constants.SIG_ALG, sigAlg);
 			} else {
 				throw new RuntimeException(Constants.SIG_ALG_EXCEPTION);
 			}
 
 			// Get the algorithm entityID
-			String algorithm = servletContext
-					.getInitParameter(Constants.ALGORITHM);
+			String algorithm = servletContext.getInitParameter(Constants.ALGORITHM);
 			// Store the algorithm in the servlet context
 			if (algorithm != null) {
 				nc.notice(algorithm);
-				servletContextEvent.getServletContext().setAttribute(
-						Constants.ALGORITHM, algorithm);
+				servletContextEvent.getServletContext().setAttribute(Constants.ALGORITHM, algorithm);
 			} else {
 				throw new RuntimeException(Constants.ALGORITHM_EXCEPTION);
 			}
 
 			// Get the idpEndpoint
-			String idpEndpoint = servletContext
-					.getInitParameter(Constants.IDP_ENDPOINT);
+			String idpEndpoint = servletContext.getInitParameter(Constants.IDP_ENDPOINT);
 			// Store the idpEndpoint in the servlet context
 			if (idpEndpoint != null) {
 				nc.notice(idpEndpoint);
-				servletContextEvent.getServletContext().setAttribute(
-						Constants.IDP_ENDPOINT, idpEndpoint);
+				servletContextEvent.getServletContext().setAttribute(Constants.IDP_ENDPOINT, idpEndpoint);
 			} else {
 				throw new RuntimeException(Constants.IDP_ENDPOINT_EXCEPTION);
 			}
@@ -152,8 +141,7 @@ public class Saml2sloContextListener implements ServletContextListener {
 			// Store the entityID in the servlet context
 			if (entityID != null) {
 				nc.notice(entityID);
-				servletContextEvent.getServletContext().setAttribute(
-						Constants.ENTITY_ID, entityID);
+				servletContextEvent.getServletContext().setAttribute(Constants.ENTITY_ID, entityID);
 			} else {
 				throw new RuntimeException(Constants.ENTITY_ID_EXCEPTION);
 			}
@@ -165,95 +153,91 @@ public class Saml2sloContextListener implements ServletContextListener {
 	}
 
 	private PublicKey getIdpPublicKey(ServletContext servletContext)
-			throws NamingException, MalformedObjectNameException,
-			AttributeNotFoundException, InstanceNotFoundException,
-			MBeanException, ReflectionException, NoSuchAlgorithmException,
-			InvalidKeySpecException, NoSuchProviderException,
-			CertificateException, IOException {
+			throws NamingException, MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException,
+			MBeanException, ReflectionException, NoSuchAlgorithmException, InvalidKeySpecException,
+			NoSuchProviderException, CertificateException, IOException {
 		/*
 		 * Retrieve the public key using the Weblogic Server configuration
 		 * (through JMX) and store it in the ServletContext
 		 */
 
 		// Get the Authenticator Provider Name
-		String authenticationProviderName = servletContext
-				.getInitParameter(AUTHENTICATOR_PROVIDER_NAME);
+		String authenticationProviderName = servletContext.getInitParameter(AUTHENTICATOR_PROVIDER_NAME);
 
 		// Get the Web SSO IdP partner name
-		String webSSOpartnerName = servletContext
-				.getInitParameter(WEB_SSO_PARTNER_NAME);
+		String webSSOpartnerName = servletContext.getInitParameter(WEB_SSO_PARTNER_NAME);
 
-		String credentials = ScriptUtils.getValueFromScript(
-				servletContext.getInitParameter(GET_PASSWD_SCRIPT),
+		String credentials = ScriptUtils.getValueFromScript(servletContext.getInitParameter(GET_PASSWD_SCRIPT),
 				PASSWORD_WEBLOGIC + JmxUtils.getDomainValue(JmxConstants.NAME));
 
 		// Get the encoded byte[] of the key
-		byte[] encodedBytes = (byte[]) JmxUtils.getCertificate(
-				authenticationProviderName, webSSOpartnerName,
+		byte[] encodedBytes = (byte[]) JmxUtils.getCertificate(authenticationProviderName, webSSOpartnerName,
 				JmxConstants.SECURITY_PRINCIPAL, credentials);
 
 		// Create the certificate
-		CertificateFactory certificateFactory = CertificateFactory
-				.getInstance("X509");
-		Certificate certificate = certificateFactory
-				.generateCertificate(new ByteArrayInputStream(encodedBytes));
-		
+		CertificateFactory certificateFactory = CertificateFactory.getInstance("X509");
+		Certificate certificate = certificateFactory.generateCertificate(new ByteArrayInputStream(encodedBytes));
+
 		// Get the public key
 		return certificate.getPublicKey();
 	}
 
-	private String getEntityID() throws NamingException,
-			MalformedObjectNameException, AttributeNotFoundException,
+	private String getEntityID() throws NamingException, MalformedObjectNameException, AttributeNotFoundException,
 			InstanceNotFoundException, MBeanException, ReflectionException {
 		// Retrieve the entityID attribute (The string that uniquely
 		// identifies the local site) from the Federation Services
 		// configuration of the server
-		String entityID = (String) JmxUtils.getValue(
-				JmxConstants.RUNTIME_SERVICE,
-				JmxConstants.SINGLE_SIGN_ON_SERVICES, Constants.ENTITY_ID,
-				JmxConstants.RUNTIME_SERVICE_MBEAN);
+		String entityID = (String) JmxUtils.getValue(JmxConstants.RUNTIME_SERVICE, JmxConstants.SINGLE_SIGN_ON_SERVICES,
+				Constants.ENTITY_ID, JmxConstants.RUNTIME_SERVICE_MBEAN);
 		return entityID;
 	}
 
 	private PrivateKey getPrivateKey(ServletContext servletContext)
-			throws IOException, KeyStoreException, NoSuchProviderException,
-			FileNotFoundException, NamingException,
-			MalformedObjectNameException, AttributeNotFoundException,
-			InstanceNotFoundException, MBeanException, ReflectionException,
-			NoSuchAlgorithmException, CertificateException,
-			UnrecoverableKeyException {
+			throws IOException, KeyStoreException, NoSuchProviderException, FileNotFoundException, NamingException,
+			MalformedObjectNameException, AttributeNotFoundException, InstanceNotFoundException, MBeanException,
+			ReflectionException, NoSuchAlgorithmException, CertificateException, UnrecoverableKeyException {
 		/*
 		 * Retrieve the private key using the Weblogic Server configuration
 		 * (through JMX) and store it in the ServletContext
 		 */
 
 		// Get keystore password (jks file)
-		String keyStorePassword = ScriptUtils.getValueFromScript(
-				servletContext.getInitParameter(GET_PASSWD_SCRIPT),
+		String keyStorePassword = ScriptUtils.getValueFromScript(servletContext.getInitParameter(GET_PASSWD_SCRIPT),
 				servletContext.getInitParameter(KEYSTORE_PASSWORD));
 
-		// Get key password (alias sso-...)
-		String privateKeyPassword = ScriptUtils.getValueFromScript(
-				servletContext.getInitParameter(GET_PASSWD_SCRIPT),
-				servletContext.getInitParameter(PRIVATE_KEY_PASSWORD));
+		// Get keystore type ('jks' or 'pkcs12')
+		String keyStoreType = JmxUtils.getValue(CUSTOM_IDENTITY_KEYSTORE_TYPE);
 
 		// Instantiate a keystore object
-		KeyStore keyStore = KeyStore.getInstance(
-				servletContext.getInitParameter(KEYSTORE_TYPE),
-				servletContext.getInitParameter(KEYSTORE_PROVIDER));
+		KeyStore keyStore = KeyStore.getInstance(keyStoreType);
 
 		// Load the keystore (open file and load bytes into keystore object)
-		FileInputStream stream = new FileInputStream(
-				JmxUtils.getValue(CUSTOM_IDENTITY_KEYSTORE_FILE_NAME));
+		FileInputStream stream = new FileInputStream(JmxUtils.getValue(CUSTOM_IDENTITY_KEYSTORE_FILE_NAME));
 		keyStore.load(stream, keyStorePassword.toCharArray());
 
+		// Password for the private key:
+		// - equal to the keystore's password for PKCS #12 keystores
+		// - 'GET_PASSWD' value for JKS keystores
+		char[] privateKeyPassword = null;
+
+		if (keyStore.getType().equals("PKCS12")) {
+			// In PKCS #12 keystores, the same password must be used for the
+			// keystore and the private keys
+			privateKeyPassword = keyStorePassword.toCharArray();
+		} else {
+			// JKS keystores encrypt the private keys with arbitrary passwords,
+			// so it's necessary to get it and use it
+			privateKeyPassword = ScriptUtils.getValueFromScript(servletContext.getInitParameter(GET_PASSWD_SCRIPT),
+					servletContext.getInitParameter(PRIVATE_KEY_PASSWORD)).toCharArray();
+		}
+
+		// Get the private key's alias
+		String privateKeyAlias = (String) JmxUtils.getValue(JmxConstants.RUNTIME_SERVICE,
+				JmxConstants.SINGLE_SIGN_ON_SERVICES, Constants.SSO_SIGNING_KEY_ALIAS,
+				JmxConstants.RUNTIME_SERVICE_MBEAN);
+
 		// Get the key (through its alias) from the keystore
-		PrivateKey privateKey = (PrivateKey) keyStore.getKey((String) JmxUtils
-				.getValue(JmxConstants.RUNTIME_SERVICE,
-						JmxConstants.SINGLE_SIGN_ON_SERVICES,
-						Constants.SSO_SIGNING_KEY_ALIAS,
-						JmxConstants.RUNTIME_SERVICE_MBEAN), privateKeyPassword
-				.toCharArray());
+		PrivateKey privateKey = (PrivateKey) keyStore.getKey(privateKeyAlias, privateKeyPassword);
 
 		return privateKey;
 	}
