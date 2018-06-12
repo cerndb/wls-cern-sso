@@ -30,18 +30,6 @@
 	</context-param>
 
 	<context-param>
-		<description>Keystore type</description>
-		<param-name>keystoreType</param-name>
-		<param-value>JKS</param-value>
-	</context-param>
-
-	<context-param>
-		<description>Keystore provider</description>
-		<param-name>keystoreProvider</param-name>
-		<param-value>SUN</param-value>
-	</context-param>
-
-	<context-param>
 		<description>Keystore password key</description>
 		<param-name>keystorePasswordKey</param-name>
 		<param-value>password_keystore_weblogic_jks</param-value>

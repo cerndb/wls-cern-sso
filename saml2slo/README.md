@@ -21,19 +21,22 @@ Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)
 
 You will need to add the next libraries to your **classpath**:
 
-* [$WL_HOME/server/lib/api.jar](http://docs.oracle.com/middleware/1212/wls/NOTES/index.html#CJAEGAAB) 
-* **$WL_HOME/server/lib/api.jar**: it loads the **Servlet API** among many others (take a look at its *MANIFEST.MF*).
-* **$WL_HOME/modules/com.bea.core.utils_2.3.0.0.jar**: it contains utility classes like *weblogic.utils.encoders.BASE64Encoder*
+* [${WL_HOME}/server/lib/wls-api.jar](https://docs.oracle.com/middleware/1212/wls/WLPRG/overview.htm#WLPRG838) &ast;
+* **${WL_HOME}/server/lib/api.jar &ast;**: it loads the **Servlet API** among many others (take a look at its *MANIFEST.MF*).
+* **${WL_HOME}/modules/com.bea.core.utils_2.3.0.0.jar &ast;**: it contains utility classes like *weblogic.utils.encoders.BASE64Encoder*
 * **saml2slo/WEB-INF/lib/bcprov-jdk15-1.46.jar**: this library stores the *org.bouncycastle.util.encoders.Hex* class used for the hex encoded of the *ID* element of the *samlp:LogoutRequest*. See more at [The Legion of the Bouncy Castle](https://www.bouncycastle.org/java.html)
 * **saml2slo/WEB-INF/lib/commons-codec-1.3.jar**: I use the *org.apache.commons.codec.binary.Base64* from this .jar for verifying the URL signature of the logout request and for decoding/encoding and inflating/deflating the responses and requests.
 
-The library is packaged as a **.war**. You can use the **war** [ant target](https://ant.apache.org/manual/targets.html) of the [build.xml](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/build.xml). Remember to update the **classpath** [fileset](https://ant.apache.org/manual/Types/fileset.html) of the compile target with above jars.
+
+&ast; **${WL_HOME}** is the installation path of WebLogic Server. It has been tested to work with WebLogic Server `12.1.3.0`. In order to build the project using a different installation of WebLogic, the required libraries might be different.
+
+The library is packaged as a **.war**. You can use the **war** [ant target](https://ant.apache.org/manual/targets.html) of the [build.xml](https://github.com/cerndb/wls-cern-sso/blob/master/WlsAttributeNameMapper/build.xml), replacing `PATH_TO_WLS_INSTALLATION` with the path to your WebLogic installation (typically, it will be the folder `wlserver`, inside of the folder where you installed WebLogic) . Remember to update the **classpath** [fileset](https://ant.apache.org/manual/Types/fileset.html) of the compile target with above jars.
 
 If you want to test the **JMX** connection with your Oracle Weblogic Server, you can run the **saml2slo/test/JMXclient** class. It requires these other libraries in your **classpath**:
 
-* **$WL_HOME/modulescom.bea.core.weblogic.security.identity_3.1.0.0.jar**
-* **$WL_HOME/server/lib/weblogic.jar**
-* **$WL_HOME/server/lib/wljmxclient.jar**
+* **${WL_HOME}/modulescom.bea.core.weblogic.security.identity_3.1.0.0.jar**
+* **${WL_HOME}/server/lib/weblogic.jar**
+* **${WL_HOME}/server/lib/wljmxclient.jar**
 
 ## Installation and configuration
 
