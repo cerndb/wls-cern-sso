@@ -17,4 +17,8 @@ These libraries have been written by [Luis Rodríguez Fernandez](http://profiles
 
 ## Contributing
 
-I have tried to make the implementation as much general as possible. However it is possible that you have to do some changes in order to make it work in your environment. Please feel free to submit bug reports and pull request via [Github](https://github.com/cerndb/wls-cern-sso).  
+I have tried to make the implementation as much general as possible. However it is possible that you have to do some changes in order to make it work in your environment. Please feel free to submit bug reports and pull request via [Github](https://github.com/cerndb/wls-cern-sso).
+
+## Acknowledgements
+
+Acknowledgements go to [anonymous] for having discovered an issue in the CernUserNamePrincipalMapper and to Radically Open Security for reporting to us.  
